@@ -20,14 +20,7 @@ class Postform extends Component {
       title: this.state.title,
       body: this.state.body
     };
-    axios
-      .post("https://jsonplaceholder.typicode.com/posts", post)
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // Call action
   };
 
   render() {
