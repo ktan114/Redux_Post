@@ -4,9 +4,13 @@ class Postform extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        title: '',
-        body: ''
+      title: "",
+      body: ""
     };
+  }
+
+  onChange = (e) => {
+      this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
@@ -17,13 +21,19 @@ class Postform extends Component {
           <div>
             <label>Title:</label>
             <br />
-            <input type="text" name="title" />
+            <input
+              type="text"
+              name="title"
+              value={this.state.title}
+              placeholder="Title"
+              onChange={ this.onChange}
+            />
           </div>
           <br />
           <div>
             <label>Body:</label>
             <br />
-            <textarea name="body" />
+            <textarea name="body" value={this.state.body} placeholder="Body" onChange={ this.onChange }/>
           </div>
           <br />
           <button type="submit">Submit</button>
