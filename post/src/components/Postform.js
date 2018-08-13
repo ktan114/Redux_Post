@@ -3,7 +3,10 @@ import React, { Component } from "react";
 class Postform extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+        title: '',
+        body: ''
+    };
   }
 
   render() {
