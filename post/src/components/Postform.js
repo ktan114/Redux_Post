@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 class Postform extends Component {
   constructor(props) {
@@ -10,32 +10,31 @@ class Postform extends Component {
     };
   }
 
-  onChange = (e) => {
-      this.setState({ [e.target.name]: e.target.value })
-  }
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-  onSubmit = (e) => {
-      e.preventDefault();
-      const post = {
-          title: this.state.title,
-          body: this.state.body
-      }
-      axios
-      .post('https://jsonplaceholder.typicode.com/posts', post)
+  onSubmit = e => {
+    e.preventDefault();
+    const post = {
+      title: this.state.title,
+      body: this.state.body
+    };
+    axios
+      .post("https://jsonplaceholder.typicode.com/posts", post)
       .then(res => {
-          console.log(res.data)
+        console.log(res.data);
       })
       .catch(err => {
-          console.log(err);
-      })
-
-  }
+        console.log(err);
+      });
+  };
 
   render() {
     return (
       <div>
         <h1>Add Post</h1>
-        <form onSubmit={ this.onSubmit }>
+        <form onSubmit={this.onSubmit}>
           <div>
             <label>Title:</label>
             <br />
@@ -44,14 +43,19 @@ class Postform extends Component {
               name="title"
               value={this.state.title}
               placeholder="Title"
-              onChange={ this.onChange}
+              onChange={this.onChange}
             />
           </div>
           <br />
           <div>
             <label>Body:</label>
             <br />
-            <textarea name="body" value={this.state.body} placeholder="Body" onChange={ this.onChange }/>
+            <textarea
+              name="body"
+              value={this.state.body}
+              placeholder="Body"
+              onChange={this.onChange}
+            />
           </div>
           <br />
           <button type="submit">Submit</button>
